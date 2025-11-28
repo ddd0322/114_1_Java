@@ -1,20 +1,9 @@
-/**
- * Magician - 魔法師類別
- * 
- * 第三階段修改：
- * - 從繼承 Role 改為繼承 RangedRole
- * - 獲得射程、能量值屬性
- * - 獲得射程檢查、能量管理能力
- * - 需要實作 getRangedAttackType()、onRangedPrepare()、onRangedRecover()
- */
+
 public class Magician extends RangedRole {
     // 治癒力
     private int healPower;
 
-    /**
-     * 建構子：初始化魔法師
-     * 注意：現在需要傳入 range 和 maxEnergy 參數
-     */
+
     public Magician(String name, int health, int attackPower, int healPower, int range, int maxEnergy) {
         super(name, health, attackPower, range, maxEnergy);
         this.healPower = healPower;
@@ -75,31 +64,19 @@ public class Magician extends RangedRole {
         System.out.println("---");
     }
 
-    // ========== 第三階段新增：實作 RangedRole 的抽象方法 ==========
-    
-    /**
-     * 取得遠程攻擊類型（抽象方法實作）
-     * 魔法師使用魔法彈
-     */
+
     @Override
     public String getRangedAttackType() {
         return "魔法彈";
     }
 
-    /**
-     * 遠程特殊準備（抽象方法實作）
-     * 魔法師會吟唱咒語
-     */
+
     @Override
     protected void onRangedPrepare() {
         System.out.println("📖 翻開魔法書，開始吟唱古老的咒語...");
         System.out.println("✨ 魔法能量在周圍凝聚，空氣中閃爍著神秘的光芒。");
     }
 
-    /**
-     * 遠程特殊恢復（抽象方法實作）
-     * 魔法師會冥想
-     */
     @Override
     protected void onRangedRecover() {
         System.out.println("🧘 " + this.getName() + " 閉目冥想，深度恢復魔力。");

@@ -76,31 +76,19 @@ public class Archer extends RangedRole {
         System.out.println("---");
     }
 
-    // ========== 實作 RangedRole 的抽象方法 ==========
-    
-    /**
-     * 取得遠程攻擊類型
-     * 弓箭手使用箭矢
-     */
+
     @Override
     public String getRangedAttackType() {
         return "精準箭矢";
     }
 
-    /**
-     * 遠程特殊準備
-     * 弓箭手會檢查弓弦和箭矢
-     */
     @Override
     protected void onRangedPrepare() {
         System.out.println("🏹 檢查弓弦的張力和箭矢的狀態...");
         System.out.println("🎯 調整呼吸，進入射擊姿態。");
     }
 
-    /**
-     * 遠程特殊恢復
-     * 弓箭手會放鬆肌肉並補充箭矢
-     */
+
     @Override
     protected void onRangedRecover() {
         System.out.println("💪 " + this.getName() + " 放鬆手臂肌肉，恢復體力。");
